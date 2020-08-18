@@ -17,8 +17,8 @@ function findFileType(dataURL:string):string|number{
     return -1
 }
 
-fileReader.onload = function(e){
-    console.log(e.currentTarget.result)
+fileReader.onload = function(e:any){
+    console.log(e.currentTarget?.result)
     if(e.currentTarget !== undefined){
         // If input file is valid type
 
