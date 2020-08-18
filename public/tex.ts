@@ -1,8 +1,8 @@
-
-
+export default a
 // #######################
 //  FILE READER STUFF
 // #######################
+function a(c:any){
 
 const fileReader = new FileReader()
 
@@ -52,3 +52,7 @@ window.addEventListener('drop',e=>{
     }
     console.log(fileObj)
 })
+
+
+    
+}

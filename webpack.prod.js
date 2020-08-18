@@ -2,13 +2,9 @@ const HTMLWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
 
 module.exports = {
-    mode:'development',
-    devServer:{
-        hot:true,
-    },
+    mode:'production',
     entry:{
-        'bundle.js': './public/main.ts',
-        // 'bundle.js': ['./public/main.ts','./public/tex.ts']
+        'bundle.js': ['./public/main.ts','./public/tex.ts']
         // 'bundle2.js': './public/tex.ts'
     },
     //path.resolve(__dirname,'public','main.ts'),

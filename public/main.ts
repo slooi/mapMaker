@@ -1,3 +1,4 @@
+import tex from './tex'
 const canvas = document.createElement('canvas')
 const canvas2 = document.createElement('canvas')
 const app = document.getElementById('app')
@@ -15,7 +16,8 @@ canvas.style.height = fHeight+'px'
 document.getElementById('app')!.append(canvas)
 document.getElementById('app')!.append(canvas2)
 
-const c = canvas.getContext('2d')
+var c = canvas.getContext('2d')
+tex(c)
 
 let blockType = 1
 
