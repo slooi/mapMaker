@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            /* box-sizing: border-box; */
+            margin:0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #app{
+            border: 1px solid black;
+            box-sizing:content-box;
+            display:inline-block;
+            width:160px;
+            height: 160px;
+        }
+        canvas{
+            position: relative;
+            width:100%;
+            height:100%;
+            image-rendering: pixelated;
+        }
+    </style>
+</head>
+<body>
+    <div>Your block type: <span id="type"></span></div>
+    <div id="app"></div>
+    <script src="main.js"></script>
+    <script src="tex.js"></script>
+    <h1>test</h1>
+</body>
+</html>
