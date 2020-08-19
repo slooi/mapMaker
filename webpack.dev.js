@@ -3,5 +3,8 @@ const webpackCommon = require('./webpack.common.js')
 const path = require('path')
 
 module.exports = Object.assign(webpackCommon,{
-    mode:'production'
+    mode:'development',
+    devServer:{
+        hot:true,
+    }
 })
