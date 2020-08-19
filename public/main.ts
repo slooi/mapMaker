@@ -2,20 +2,22 @@ import tex from './tex'
 import './style.css'
 const canvas = document.createElement('canvas')
 const canvas2 = document.createElement('canvas')
-const app = document.getElementById('app')
+// // const app = document.getElementById('app')
 let bDiameter = 16
 let bMapWidth = 10
 let bMapHeight = 10
 canvas.width = bDiameter*bMapWidth
 canvas.height = bDiameter*bMapHeight
-let fWidth = canvas.width//bDiameter*10//
+let fWidth = canvas.width//bDiameter*10//   
 let fHeight = canvas.height//bDiameter*10//
-app!.style.width = fWidth+'px'
-app!.style.height = fHeight+'px'
+// app!.style.width = fWidth+'px'
+// app!.style.height = fHeight+'px'
 canvas.style.width = fWidth+'px'
 canvas.style.height = fHeight+'px'
-document.getElementById('app')!.append(canvas)
-document.getElementById('app')!.append(canvas2)
+// // document.getElementById('app')!.append(canvas)
+// // document.getElementById('app')!.append(canvas2)
+document.body.append(canvas)
+document.body.append(canvas2)
 
 var c = canvas.getContext('2d')
 tex(c)
@@ -65,7 +67,7 @@ function processMouseDown(mouseDown:boolean|undefined,e:MouseEvent):void{
     }
     const mX = e.offsetX
     const mY = e.offsetY
-    if(mX<fWidth && mY<fHeight){
+    if(mX<fWidth && mY<fHeight && mX>=0 && mY>=0){
         mouse.x = mX
         mouse.y = mY
         console.log(mouse.x,mouse.y)

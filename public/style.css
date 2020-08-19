@@ -4,14 +4,15 @@
     padding: 0;
     box-sizing: border-box;
 }
-#app{
+/* #app{
     border: 1px solid black;
     box-sizing:content-box;
     display:inline-block;
     width:160px;
     height: 160px;
-}
+} */
 canvas{
+    border: 1px solid black;
     position: relative;
     width:100%;
     height:100%;
