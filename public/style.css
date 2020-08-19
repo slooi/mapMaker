@@ -1,17 +1,59 @@
+/* SETUP */
 *{
     /* box-sizing: border-box; */
     margin:0;
     padding: 0;
     box-sizing: border-box;
+    font-size: 1rem;
 }
 html,body{
     width:100%;
     height:100%;
 }
+body{
+    display: grid;
+    grid-template-columns: 15rem 1fr;
+}
+
+/* CLASSES & ID */
+#canvas{
+    
+}
+
+#tex-canvas{
+    /* float:right */
+    position: fixed;
+    bottom:0px;
+    right:0px;
+}
+#side-bar{
+    background-color:rgb(248, 248, 248);
+    padding:0.25rem;
+    /* display:grid; */
+}
+#main-content{
+    background-color:yellow;
+
+}
+
+.vertical-align{
+    display:flex;
+    align-content: center;
+}
+
+.hidden{
+    display:none;
+}
+
+/* NORMAL ELEMENTS */
 canvas{
     border: 1px solid black;
     position: relative;
     width:100%;
     height:100%;
     image-rendering: pixelated;
+}
+
+[type="text"]{
+    width:5rem;
 }

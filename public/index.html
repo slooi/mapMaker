@@ -6,6 +6,40 @@
     <title>Document</title>
 </head>
 <body>
-    <div>Your block type: <span id="type"></span></div>
+    <div id="side-bar">
+        
+        <div>Block Row Index: <input type="text" value="0"/></div>
+        <div>Block Column Index: <input type="text" value="0"/></div>
+        <div>Background color: <input type="color" id="background-color-input" value="#7a444a"/></div>
+        <div>Map Width:<br><input type="number" value="10" name="map-width-input"/></div>
+        <div>Map Height:<br><input type="number" value="10" name="map-height-input"/></div>
+        <div class="vertical-align">Display Texture:<input type="checkbox" id="display-texture-input" checked></div>
+        <div><button>Download 2D Array of Map</button></div>
+        <!-- 
+            set background color
+            set background image
+
+            select tile by click on texture image
+
+            tileWidth
+            tileHeight
+            tileSpacing
+            
+            can use tiles 2d texture image
+
+            output:
+            1d array
+            2d array
+
+            color picker
+
+            undo
+
+         -->
+    </div>
+    <div id="main-content">
+        <canvas id="canvas"></canvas>
+        <canvas id="tex-canvas"></canvas>
+    </div>
 </body>
 </html>
