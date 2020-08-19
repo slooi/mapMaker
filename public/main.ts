@@ -1,4 +1,5 @@
 import tex from './tex'
+import './style.css'
 const canvas = document.createElement('canvas')
 const canvas2 = document.createElement('canvas')
 const app = document.getElementById('app')
