@@ -1,33 +1,16 @@
+// ##################
+// IMPORTS
+// ##################
+
+// Import modules
 import tex from './tex'
 import './style.css'
-const canvas = document.createElement('canvas')
-const canvas2 = document.createElement('canvas')
-// // const app = document.getElementById('app')
-let bDiameter = 16
-let bMapWidth = 10
-let bMapHeight = 10
-canvas.width = bDiameter*bMapWidth
-canvas.height = bDiameter*bMapHeight
-let fWidth = canvas.width//bDiameter*10//   
-let fHeight = canvas.height//bDiameter*10//
-// app!.style.width = fWidth+'px'
-// app!.style.height = fHeight+'px'
-canvas.style.width = fWidth+'px'
-canvas.style.height = fHeight+'px'
-// // document.getElementById('app')!.append(canvas)
-// // document.getElementById('app')!.append(canvas2)
-document.body.append(canvas)
-document.body.append(canvas2)
 
-var c = canvas.getContext('2d')
-tex(c)
-
-let blockType = 1
+// ##################
+//  SCHEMA
+// ##################
 
 let map:number[][]
-
-
-createMap(bMapWidth,bMapHeight)
 
 interface Mouse{
     down: boolean,
@@ -35,30 +18,84 @@ interface Mouse{
     y:undefined|number
 }
 
+// ##################
+// INITIALISATION
+// ##################
+
+// Get DOM elements
+const canvas = document.createElement('canvas')
+const texCanvas = document.createElement('canvas')
+
+const type = document.getElementById('type')
+
+
+// Initalise user-accessible variables
+let bDiameter = 16      // block diameter
+let bMapWidth = 10      // map witdth in blocks
+let bMapHeight = 10     // map height in blocks
+let blockType = 1
+
+// Adjust canvas dimensions
+canvas.width = bDiameter*bMapWidth
+canvas.height = bDiameter*bMapHeight
+canvas.style.width = canvas.width+'px'
+canvas.style.height = canvas.height+'px'
+
+// Initialise System Variables/Constants
+let fWidth = canvas.width 
+let fHeight = canvas.height
 const mouse:Mouse = {
     down: false,
     x: undefined,
     y:undefined
 }
 
-canvas.addEventListener('mousedown',e=>{
-    processMouseDown(true,e)
-})
-canvas.addEventListener('mousemove',e=>{
-    processMouseDown(undefined,e)
-})
-canvas.addEventListener('mouseup',e=>{
-    processMouseDown(false,e)
-})
 
-window.addEventListener('keydown',e=>{
-    console.log(e)
-    const key = e.key
-    const keyCode = e.keyCode
-    if(keyCode>=48 && keyCode<=57){
-        blockType = Number(key)
-    }
-})
+// Append Canvases to DOM
+document.body.append(canvas)
+document.body.append(texCanvas)
+
+var c = canvas.getContext('2d')
+
+// Initialise tex
+tex(c)
+
+// ##################
+//  MAIN
+// ##################
+
+
+setBlockType(blockType)
+
+createMap(bMapWidth,bMapHeight)
+
+// Main loop
+function loop(){
+    
+    render()
+    requestAnimationFrame(loop)
+}
+loop()
+
+
+
+// ##################
+//  FUNCTIONS
+// ##################
+
+
+function placeBlock(offX:number,offY:number){
+    const indexX:number = Math.floor(offX/bDiameter)
+    const indexY:number = Math.floor(offY/bDiameter)
+    console.log(indexX,indexY)
+    map[indexY][indexX] = blockType
+}
+
+
+function setBlockType(blockType:number){
+    type!.innerText = String(blockType)
+}
+
 
 
 function processMouseDown(mouseDown:boolean|undefined,e:MouseEvent):void{
@@ -100,23 +137,28 @@ function render(){
     }
 }
 
-function loop(){
-    
-    render()
-    requestAnimationFrame(loop)
-}
-loop()
-
-function placeBlock(offX:number,offY:number){
-    const indexX:number = Math.floor(offX/bDiameter)
-    const indexY:number = Math.floor(offY/bDiameter)
-    console.log(indexX,indexY)
-    map[indexY][indexX] = blockType
-}
-
-const type = document.getElementById('type')
-type!.innerText = String(blockType)
 
 
 
+// ##################
+//  EVENTLISTENERS
+// ##################
 
+canvas.addEventListener('mousedown',e=>{
+    processMouseDown(true,e)
+})
+canvas.addEventListener('mousemove',e=>{
+    processMouseDown(undefined,e)
+})
+canvas.addEventListener('mouseup',e=>{
+    processMouseDown(false,e)
+})
+
+window.addEventListener('keydown',e=>{
+    console.log(e)
+    const key = e.key
+    const keyCode = e.keyCode
+    if(keyCode>=48 && keyCode<=57){
+        blockType = Number(key)
+    }
+})

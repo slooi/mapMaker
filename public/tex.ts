@@ -1,8 +1,8 @@
-export default a
+export default function (c:any){
 // #######################
 //  FILE READER STUFF
 // #######################
-function a(c:any){
+
 
 const fileReader = new FileReader()
 
